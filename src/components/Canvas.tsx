@@ -1,4 +1,5 @@
 import React, {useEffect, useRef, useState} from 'react';
+import Chart from "./Chart";
 
 interface Props {
     zoomValue: number;
@@ -15,9 +16,10 @@ interface Props {
             y: number;
         }
     }>>
+    setServiceCounter: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const Canvas: React.FC<Props> = ({setZoomValue, zoomValue, viewport, setViewport}) => {
+const Canvas: React.FC<Props> = ({setZoomValue, zoomValue, viewport, setViewport, setServiceCounter}) => {
     const canvasRef = useRef<HTMLDivElement>(null);
     const [nav, setNav] = useState< null | 'top' | 'right' | 'bottom'| 'left' >(null);
 
@@ -159,7 +161,7 @@ const Canvas: React.FC<Props> = ({setZoomValue, zoomValue, viewport, setViewport
                     }px) scale(${zoomValue})`
                 }}
             >
-                <div style={{backgroundColor: 'red', width: '500px', height: '200px'}} />
+                <Chart setServiceCounter={setServiceCounter} />
             </div>
         </div>
     );
