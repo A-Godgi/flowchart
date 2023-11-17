@@ -1,11 +1,19 @@
 import React, {useState} from 'react';
-import { ReactComponent as Arrow} from '../assets/images/gps-arrow-svgrepo-com.svg';
+import {ReactComponent as Arrow} from '../assets/images/gps-arrow-svgrepo-com.svg';
 
 interface Props {
     children: React.ReactNode;
+    zoomValue: number;
+    setZoomValue: React.Dispatch<React.SetStateAction<number>>;
+    setViewport: React.Dispatch<React.SetStateAction<{
+        offset: {
+            x: number;
+            y: number;
+        }
+    }>>;
 }
-const Layout: React.FC<Props> = ({children}) => {
-    const [isOpenDropdown, setIsOpenDropdown] = useState(false);
+const Layout: React.FC<Props> = ({children, zoomValue, setZoomValue, setViewport}) => {
+    const [isOpenModal, setIsOpenModal] = useState(false);
     const selectOptions = [
         {label: '25%', value: 0.25},
         {label: '30%', value: 0.3},
@@ -20,14 +28,33 @@ const Layout: React.FC<Props> = ({children}) => {
         {label: '150%', value: 1.5},
     ]
 
-    const togDropdown = () => setIsOpenDropdown(!isOpenDropdown)
+    const moveToCenter = () => setViewport({
+        offset: {
+            x: 0.0,
+            y: 0.0
+        }
+    })
 
-    const selectDropdown = () => (
+    const zoomPlus = () => {
+        if(zoomValue < 1.5){
+            setZoomValue((prev) => prev + 0.1)
+        }
+    }
+
+    const zoomMinus = () => {
+        if(zoomValue > 0.25){
+            setZoomValue((prev) => prev - 0.1)
+        }
+    }
+
+    const togModal = () => setIsOpenModal(!isOpenModal)
+
+    const selectModal = () => (
         <React.Fragment>
             <div className='selectModalContainer'>
                 {selectOptions.map((option) => (
-                    <div onClick={() => {setIsOpenDropdown(false)}} className='option'>
-                        {option.label}
+                    <div onClick={() => {setZoomValue(option.value); setIsOpenModal(false)}} className='option'>
+                        {option.label} {Math.round(zoomValue * 100) === option.value * 100 && <div className='checkmark-selector'/>}
                     </div>
                 ))}
             </div>
@@ -43,11 +70,11 @@ const Layout: React.FC<Props> = ({children}) => {
                 </div>
                 <div className='d-flex align-items-center position-relative'>
                     <button className='header-button-primary'>List view</button>
-                    <button className='header-button-nav mr'><Arrow/></button>
-                    <button className='header-button-nav bg'> - </button>
-                    <button onClick={togDropdown} className='header-button-nav'> 100% </button>
-                    <button className='header-button-nav bg'> + </button>
-                    {isOpenDropdown && selectDropdown()}
+                    <button onClick={moveToCenter} className='header-button-nav mr'><Arrow/></button>
+                    <button onClick={zoomMinus} className='header-button-nav bg'> - </button>
+                    <button onClick={togModal} className='header-button-nav'> {Math.round(zoomValue * 100)}% </button>
+                    <button onClick={zoomPlus} className='header-button-nav bg'> + </button>
+                    {isOpenModal && selectModal()}
                 </div>
             </div>
             {children}

@@ -102,7 +102,30 @@
   padding: .5rem 2rem .5rem 1.5rem;
   cursor: pointer;
   &:hover {
-      background-color: $secondary-color;
-      color: black;
+    background-color: $secondary-color;
+    color: black;
   }
+}
+
+.checkmark-selector {
+  margin-left: .4rem;
+  position: relative;
+  width: 13px;
+  height: 13px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.checkmark-selector::after {
+  content: "";
+  position: absolute;
+  top: calc(50% - 2px);
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  width: 6px;
+  height: 9px;
+  border-bottom: 2px solid $primary-color;
+  border-right: 2px solid $primary-color;
 }
