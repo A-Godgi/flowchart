@@ -3,6 +3,7 @@ import {ReactComponent as Arrow} from '../assets/images/gps-arrow-svgrepo-com.sv
 
 interface Props {
     children: React.ReactNode;
+    serviceCounter: number;
     zoomValue: number;
     setZoomValue: React.Dispatch<React.SetStateAction<number>>;
     setViewport: React.Dispatch<React.SetStateAction<{
@@ -12,7 +13,7 @@ interface Props {
         }
     }>>;
 }
-const Layout: React.FC<Props> = ({children, zoomValue, setZoomValue, setViewport}) => {
+const Layout: React.FC<Props> = ({children, serviceCounter, zoomValue, setZoomValue, setViewport}) => {
     const [isOpenModal, setIsOpenModal] = useState(false);
     const selectOptions = [
         {label: '25%', value: 0.25},
@@ -54,7 +55,7 @@ const Layout: React.FC<Props> = ({children, zoomValue, setZoomValue, setViewport
             <div className='selectModalContainer'>
                 {selectOptions.map((option) => (
                     <div onClick={() => {setZoomValue(option.value); setIsOpenModal(false)}} className='option'>
-                        {option.label} {Math.round(zoomValue * 100) === option.value * 100 && <div className='checkmark-selector'/>}
+                        {option.label} {zoomValue === option.value && <div className='checkmark-selector'/>}
                     </div>
                 ))}
             </div>
@@ -66,7 +67,7 @@ const Layout: React.FC<Props> = ({children, zoomValue, setZoomValue, setViewport
             <div className='header'>
                 <div className='d-flex align-items-center'>
                     <h1 className='header_title'>Services</h1>
-                    <span className='header_counter'>0</span>
+                    <span className='header_counter'>{serviceCounter}</span>
                 </div>
                 <div className='d-flex align-items-center position-relative'>
                     <button className='header-button-primary'>List view</button>
