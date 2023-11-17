@@ -1,0 +1,108 @@
+.layout-container{
+  height: 100vh;
+  max-height: 100vh;
+  width: 100vw;
+  background-color: $background-color;
+  overflow: hidden;
+  position: relative
+}
+
+.header {
+  height: 10rem;
+  border-bottom: $semi-transparent .1rem solid;
+  background-color: $background-color;
+  margin-right: 4rem;
+  margin-left: 4rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 10;
+}
+
+.header_title {
+  font-size: 3.5rem;
+  font-weight: 400;
+  margin-right: .6rem;
+  margin-bottom: .3rem;
+}
+
+.header_counter {
+  font-size: 2rem;
+  font-weight: 400;
+  color: #FFFFFF;
+  background-color: $danger-color;
+  border-radius: 50%;
+  text-align: center;
+  min-height: 3rem;
+  min-width: 3rem;
+  line-height: 3rem;
+}
+
+.header-button-primary {
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  border-radius: .3rem;
+  padding: 1rem 1.5rem;
+  font-weight: bold;
+  margin: .1rem .6rem;
+  height: 4rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+.header-button-nav {
+  text-align: center;
+  background-color: white;
+  color: $secondary-color;
+  fill: $secondary-color;
+  border: none;
+  border-radius: .3rem;
+  padding: 1rem 1.5rem;
+  font-weight: bold;
+  margin: .1rem;
+  height: 4rem;
+  font-size: 1.5rem;
+  & img{
+    height: 1rem;
+  }
+
+  &.bg {
+    font-size: 1.5rem;
+  }
+
+  &.mr {
+    margin-right: .6rem;
+  }
+
+  &:hover {
+    background-color: $secondary-color;
+    color: white;
+    fill: white;
+  }
+}
+
+.selectModalContainer {
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
+  font-size: 1.5rem;
+  z-index: 30;
+  padding: 1.5rem 0;
+  color: $secondary-color;
+  top: 5rem;
+  right: 4rem;
+  width: 8.8rem;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  padding: .5rem 2rem .5rem 1.5rem;
+  cursor: pointer;
+  &:hover {
+      background-color: $secondary-color;
+      color: black;
+  }
+}

@@ -1,10 +1,11 @@
 import React from 'react';
 import './assets/scss/style.scss'
+import Layout from "./components/Layout";
 
 function App() {
   return (
-    <div>
-    </div>
+    <Layout>
+    </Layout>
   );
 }
 
