@@ -1,0 +1,97 @@
+.canvas-container{
+  height: 100vh;
+  max-height: 100vh;
+  width: 100vw;
+  background-color: $background-color;
+  overflow: hidden;
+  position: relative
+}
+
+.flowchart-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: move;
+}
+
+.zoom-animation {
+  transition: transform 0.3s ease-in-out;
+}
+
+.arrow {
+  position: absolute;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-top: .3rem solid white;
+  border-right: .3rem solid white;
+  margin-right: 2rem;
+  &.left {
+    left: calc(50% - .6rem);
+    top: calc(50% - .6rem);
+    transform: rotate(-135deg);
+  }
+  &.right {
+    left: calc(50% - .6rem);
+    top: calc(50% - .6rem);
+    transform: rotate(45deg);
+  }
+  &.bottom {
+    bottom: calc(50% - .6rem);
+    left: calc(50% - .6rem);
+    transform: rotate(135deg);
+  }
+  &.top {
+    top: calc(50% - .6rem);
+    left: calc(50% - .6rem);
+    transform: rotate(-45deg);
+  }
+}
+
+.nav-top {
+  position: absolute;
+  z-index: 20;
+  cursor: pointer;
+  background-color: $semi-transparent;
+  width: 12rem;
+  height: 4rem;
+  top: 0;
+  left: calc(50% - 6rem);
+}
+
+.nav-left {
+  position: absolute;
+  z-index: 20;
+  cursor: pointer;
+  background-color: $semi-transparent;
+  height: 12rem;
+  width: 4rem;
+  top: calc(50% - 6rem);
+  left: 0;
+}
+
+.nav-bottom {
+  position: absolute;
+  z-index: 20;
+  cursor: pointer;
+  background-color: $semi-transparent;
+  width: 12rem;
+  height: 4rem;
+  bottom: 10rem;
+  left: calc(50% - 6rem);
+}
+
+.nav-right {
+  position: absolute;
+  z-index: 20;
+  cursor: pointer;
+  background-color: $semi-transparent;
+  height: 12rem;
+  width: 4rem;
+  top: calc(50% - 6rem);
+  right: 0;
+}
