@@ -225,7 +225,7 @@ const ChartElementComponent: React.FC<Props> = ({ element, chartData, setChartDa
         <div ref={blockRef} id={element.id} className='position-relative'>
             {element.isEditable ? editablePart() : nonEditablePart()}
             {element.children && (
-                <div className='d-flex position-relative'>
+                <div className='d-flex position-relative justify-content-center'>
                     {element.children.map((child: ChartElement, index: number) => (
                         <ChartElementComponent
                             key={child.id}
