@@ -1,46 +1,70 @@
-# Getting Started with Create React App
+# Test Task React Flowchart
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple React project for creating and editing flowcharts.
+The project was done as a test task for a vacancy.
 
-## Available Scripts
+## Demo
+![ ](https://github.com/A-Godgi/flowchart/blob/master/demo.gif)
+[https://a-godgi.github.io/flowchart/](https://a-godgi.github.io/flowchart/)
 
-In the project directory, you can run:
+## Technologies
 
-### `npm start`
+- React
+- TypeScript
+- HTML
+- CSS
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installation
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Clone the repository: `git clone https://github.com/A-Godgi/flowchart.git`
+2. Navigate to the project directory: `cd flowchart`
+3. Install dependencies: `npm install`
 
-### `npm test`
+## Usage 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Run the following command to start the project:
 
-### `npm run build`
+```bash
+npm start
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Open your browser and go to [http://localhost:3000](http://localhost:3000).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Project Structure
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The project follows a standard React application structure:
 
-### `npm run eject`
+```
+├── public/                             <- Contains static assets like HTML files, images, and the favicon.
+├── src/                                <- Contains the source code for the React application.
+│   ├── assets/                         <- Holds project-specific assets.
+│   │   ├── images                      <- Stores images used in the project.
+│   │   └── scss                        <- Contains SCSS stylesheets.
+│   │       ├── _base.scss              <- Contains base styling for the application.
+│   │       ├── _canvas.scss            <- Styles for the Canvas component.
+│   │       ├── _chart.scss             <- Styles for the Chart and ChartElementComponent component.
+│   │       ├── _layout.scss            <- Styles for the Layout component.
+│   │       ├── _utilities.scss         <- Common auxiliary styles
+│   │       ├── _variables.scss         <- SCSS variables.
+│   │       └── style.scss              <- Main SCSS file importing all other styles.
+│   ├── components/                     <- Contains React components for the flowchart.
+│   │   ├── Canvas.tsx                  <- React component contains the canvas.
+│   │   ├── Chart.tsx                   <- React component containing chart elements and counting services.
+│   │   ├── ChartElementComponent.tsx   <- Recursive react component that is a chart element.
+│   │   └── Layout.tsx                  <- React component contains the canvas.
+│   ├── types/                          <- Holds TypeScript type definitions.
+│   │   └── index.ts                    <- Main file exporting general type definitions.
+│   ├── App.tsx                         <- Main React component that integrates other components to create the app.
+│   ├── custom.d.ts                     <- Custom TypeScript .svg declarations.
+│   ├── index.tsx                       <- Entry point for the React app.
+│   └── logo.svg                        <- SVG file for the project logo.
+├── .gitignore                          <- Specifies files and directories that should be ignored by version control.
+├── package.json                        <- Configuration file that includes project dependencies and scripts.
+├── package-lock.json                   <- Auto-generated file describing the exact tree that was generated for the node_modules folder.
+├── README.md                           <- Documentation file providing information about the project.
+└── tsconfig.json                       <- TypeScript configuration file.
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Notes
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+Smooth navigation using touchpad gestures, providing an intuitive way to interact with the flowchart.
